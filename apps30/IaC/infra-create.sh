@@ -2,16 +2,20 @@
 
 set -e
 
+if [ $# -ne 2 ]; then
+  echo You need to provide the admin password and the subscription name
+fi
+
 # Credentials
-azureResourceGroup=igniteapps30
-adminUser=twtadmin
-adminPassword=twtapps30pD
-subName="Ignite The Tour"
+azureResourceGroup=apps30-ignite
+adminUser=giggio
+adminPassword=$1
+subName="$2"
 location=eastus
 # DB Name
-cosmosdbname=apps30twtnosqlge
-sqldbname=apps30twtsql
-acrName=igniteapps30acr
+cosmosdbname=apps30twtnosqlgesample
+sqldbname=apps30twtsqlsample
+acrName=igniteapps30acrsample
 
 # Create resource group
 az group create --subscription "$subName" --name $azureResourceGroup --location $location
