@@ -4,6 +4,7 @@ set -e
 
 if [ $# -ne 2 ]; then
   echo You need to provide the admin password and the subscription name
+  exit 1
 fi
 
 # Credentials
